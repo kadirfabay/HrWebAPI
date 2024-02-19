@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 
 ENV ASPNETCORE_ENVIRONMENT=Development
-
+EXPOSE 5085
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
