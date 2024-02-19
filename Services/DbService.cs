@@ -9,7 +9,7 @@ public class DbService : IDbService
 
     public DbService(IConfiguration configuration)
     {
-        _db = new NpgsqlConnection(configuration.GetConnectionString("userinformationdb"));
+        _db = new NpgsqlConnection(configuration.GetConnectionString("UsersInformationdb"));
     }
 
     public async Task<T> GetAsync<T>(string command, object parms)
