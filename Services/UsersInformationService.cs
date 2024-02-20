@@ -29,7 +29,7 @@ namespace HRWebAPI.Services
                 @"INSERT INTO public.hr_information
                 (name, surname, birthday, section, contact_prefence, email, phone, city, adress, data)
                 VALUES
-                (@Name, @Surname, @Birthday, @Section, @ContactPrefence, @Email, @Phone, @City, @Adress, @Data)",
+                (@Name, @Surname, @Birthday, @Section, @ContactPrefence, @Email, @Phone, @City, @Adress, @Resume)",
                 new
                 {
                     Name = usersInformation.Name,
@@ -41,7 +41,7 @@ namespace HRWebAPI.Services
                     Phone = usersInformation.Phone,
                     City = usersInformation.City,
                     Adress = usersInformation.Adress,
-                    Data = usersInformation.Data
+                    Resume = usersInformation.Resume
                 });
             return true;
         }

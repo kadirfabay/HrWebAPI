@@ -24,6 +24,6 @@
         //public string Country { get; set; }
         public string City { get; set; }
         public string Adress { get; set; }
-        public byte[]? Data { get; set; }
+        public byte[]? Resume { get; set; }
     }
 }
