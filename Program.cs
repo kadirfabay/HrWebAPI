@@ -16,21 +16,6 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
-// CORS policy ismi
-var myCorsPolicy = "MyCorsPolicy";
-
-// CORS politikas?n? ekle
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: myCorsPolicy,
-                      policy =>
-                      {
-                          policy.WithOrigins("https://ik-basvuru.fabitech.com.tr/")
-                                .AllowAnyHeader()
-                                .AllowAnyMethod();
-                      });
-});
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
