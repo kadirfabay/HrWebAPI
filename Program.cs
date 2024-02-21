@@ -2,19 +2,32 @@ using Dapper;
 using HRWebAPI.Services; //Entity yerine dapper kullan?yoruz
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy", policy =>
+    {
+        policy.WithOrigins("https://ik-basvuru.fabitech.com.tr") // React uygulaman?z?n URL'sini buraya girin   
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+
+});
+
 DefaultTypeMap.MatchNamesWithUnderscores = true;
 
 builder.Services.AddScoped<IDbService, DbService>();
 builder.Services.AddScoped<IUsersInformationService, UsersInformationService>();
 // Add services to the container.
 
-builder.Services.AddCors();
+//builder.Services.AddCors();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors("MyCorsPolicy");
 
 
 // Configure the HTTP request pipeline.
@@ -24,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(a => a.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+//app.UseCors(a => a.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
