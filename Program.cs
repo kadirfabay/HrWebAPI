@@ -2,16 +2,17 @@ using Dapper;
 using HRWebAPI.Services; //Entity yerine dapper kullan?yoruz
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy", policy =>
     {
-        policy.WithOrigins("https://ik-basvuru.fabitech.com.tr") // React uygulaman?z?n URL'sini buraya girin   
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
-
 });
+
 
 DefaultTypeMap.MatchNamesWithUnderscores = true;
 
