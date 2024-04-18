@@ -27,9 +27,9 @@ namespace HRWebAPI.Services
             var result = await _dbService.EditData(
 
                 @"INSERT INTO public.hr_information
-                (name, surname, birthday, section, contact_prefence, email, phone, city, adress, data)
+                (name, surname, birthday, section, contact_prefence, email, phone, city, adress, data,activity_name)
                 VALUES
-                (@Name, @Surname, @Birthday, @Section, @ContactPrefence, @Email, @Phone, @City, @Adress, @Resume)",
+                (@Name, @Surname, @Birthday, @Section, @ContactPrefence, @Email, @Phone, @City, @Adress, @Resume,@ActivityName)",
                 new
                 {
                     Name = usersInformation.Name,
@@ -41,7 +41,8 @@ namespace HRWebAPI.Services
                     Phone = usersInformation.Phone,
                     City = usersInformation.City,
                     Adress = usersInformation.Adress,
-                    Resume = usersInformation.Resume
+                    Resume = usersInformation.Resume,
+                    ActivityName = usersInformation.ActivityName,
                 });
             return true;
         }

@@ -25,5 +25,8 @@
         public string City { get; set; }
         public string Adress { get; set; }
         public byte[]? Resume { get; set; }
+
+        public string ActivityName { get; set; }
+
     }
 }
